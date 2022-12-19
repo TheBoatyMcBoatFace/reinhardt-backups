@@ -1,0 +1,75 @@
+{
+  "active": false,
+  "connections": {
+    "Every 5 Mins.": {
+      "main": [
+        [
+          {
+            "node": "Get Sentry Events",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-12-19T20:44:34.731Z",
+  "dataLoaded": false,
+  "id": 2,
+  "name": "Sentry Alert Mgmt.",
+  "nodes": [
+    {
+      "parameters": {
+        "sentryVersion": "server"
+      },
+      "id": "e70e63e1-c0ac-48cf-b75d-da0722574883",
+      "name": "Get Sentry Events",
+      "type": "n8n-nodes-base.sentryIo",
+      "typeVersion": 1,
+      "position": [
+        600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "id": "c46de401-608c-4084-b7e7-3eae95f926df",
+      "name": "Every 5 Mins.",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        340,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "98b5be93-1336-4959-b372-2baaf9245e50",
+        "options": {}
+      },
+      "id": "7f8a2635-d2eb-4ac6-8380-7563dde0f008",
+      "name": "Catch Sentry Events",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        560
+      ],
+      "webhookId": "98b5be93-1336-4959-b372-2baaf9245e50"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-12-19T20:52:46.000Z",
+  "versionId": "37eba045-df4e-4786-9817-4dd6bb4df5a9"
+}
