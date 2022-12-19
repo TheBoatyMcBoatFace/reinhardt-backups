@@ -20,7 +20,10 @@
   "nodes": [
     {
       "parameters": {
-        "sentryVersion": "server"
+        "sentryVersion": "server",
+        "operation": "getAll",
+        "organizationSlug": "fff",
+        "projectSlug": "ffslug"
       },
       "id": "e70e63e1-c0ac-48cf-b75d-da0722574883",
       "name": "Get Sentry Events",
@@ -70,6 +73,6 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-19T20:52:46.000Z",
-  "versionId": "37eba045-df4e-4786-9817-4dd6bb4df5a9"
+  "updatedAt": "2022-12-19T20:58:07.000Z",
+  "versionId": "0564f016-1eb3-4b0a-be86-05e1a82bf7d5"
 }
