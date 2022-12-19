@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -163,7 +163,7 @@
         ]
       ]
     },
-    "Every 12 hours": {
+    "Every 6 Hours": {
       "main": [
         [
           {
@@ -176,7 +176,7 @@
     }
   },
   "createdAt": "2022-12-19T01:08:32.545Z",
-  "dataLoaded": false,
+  "dataLoaded": true,
   "id": 1,
   "name": "Back Up Your n8n Workflows To Github",
   "nodes": [
@@ -374,26 +374,6 @@
     },
     {
       "parameters": {
-        "triggerTimes": {
-          "item": [
-            {
-              "mode": "everyX",
-              "value": 12
-            }
-          ]
-        }
-      },
-      "id": "9815a578-3e63-4128-bea5-8301745606b7",
-      "name": "Every 12 hours",
-      "type": "n8n-nodes-base.cron",
-      "position": [
-        835,
-        595
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "content": "## Workflow Backups\nThis workflow will automatically backup your workflows to your Github account every 12 hours.\n\n### Setup\nOpen Globals and update the values below\n**repo.owner:** This is your Github username\n**repo.name:** This is the name of your repository\n**repo.path:** This is the folder to use within the repository, If it doesn't exist it will be created.\n\nIf your username was `n8n-io` and your repository was called `n8n-backups` and you wanted the workflows to go into a `workflows` folder you would set:\n\nrepo.owner - n8n-io\nrepo.name - n8n-backups\nrepo.path - workflows",
         "height": 464.79920462713443,
         "width": 389.78906250000017
@@ -479,12 +459,32 @@
         440
       ],
       "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "mode": "everyX",
+              "value": 6
+            }
+          ]
+        }
+      },
+      "id": "9815a578-3e63-4128-bea5-8301745606b7",
+      "name": "Every 6 Hours",
+      "type": "n8n-nodes-base.cron",
+      "position": [
+        835,
+        595
+      ],
+      "typeVersion": 1
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-19T20:56:56.000Z",
-  "versionId": "e8651509-963b-41c6-9d0d-33b5d9f3badf"
+  "updatedAt": "2022-12-19T20:57:37.000Z",
+  "versionId": "b2a1e8a7-89a0-4a3c-9492-f85e8a199b17"
 }
