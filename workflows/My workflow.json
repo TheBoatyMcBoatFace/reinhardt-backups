@@ -1,0 +1,41 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2022-12-22T23:13:13.628Z",
+  "dataLoaded": false,
+  "id": 6,
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "owner": "department-of-veterans-affairs",
+        "repository": "va.gov-cms",
+        "events": [
+          "issues"
+        ]
+      },
+      "id": "eb3235d4-2663-4a3e-b612-16bfd9e2fe08",
+      "name": "Github Trigger",
+      "type": "n8n-nodes-base.githubTrigger",
+      "typeVersion": 1,
+      "position": [
+        680,
+        320
+      ],
+      "webhookId": "84cbff4f-0a46-48e8-b383-42783fc3db59",
+      "credentials": {
+        "githubApi": {
+          "id": "2",
+          "name": "Boaty's GitHub account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-22T23:13:13.628Z",
+  "versionId": "d9ca2d9d-a697-4f06-92da-a783a2ba704b"
+}
