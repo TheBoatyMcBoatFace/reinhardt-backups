@@ -1,0 +1,40 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2022-12-23T20:29:29.894Z",
+  "dataLoaded": false,
+  "id": 9,
+  "name": "Event Subscription",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "action-endpoint",
+        "options": {}
+      },
+      "id": "edd5a2bc-c1ab-4187-9e3f-13602e602f2b",
+      "name": "Slack Event Endpoint",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        420,
+        340
+      ],
+      "webhookId": "1e59c8b2-dc2d-43f9-97d7-716f96803994"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2022-12-23T20:19:05.175Z",
+      "updatedAt": "2022-12-23T20:19:05.175Z",
+      "id": "2",
+      "name": "Slack"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-23T20:30:05.000Z",
+  "versionId": "1d606620-1ef2-467c-8f7f-df651a847832"
+}
