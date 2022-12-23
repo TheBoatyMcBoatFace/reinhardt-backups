@@ -1,0 +1,40 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2022-12-23T20:19:01.844Z",
+  "dataLoaded": false,
+  "id": 7,
+  "name": "Interactivity & Shortcuts",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "slack-interactivity",
+        "options": {}
+      },
+      "id": "ac6bf536-fab5-430b-a1a8-23e157d1d5ff",
+      "name": "Interactivity Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        320,
+        220
+      ],
+      "webhookId": "9e3ac4ed-ea69-4646-b218-70bbd7fb99c0"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2022-12-23T20:19:05.175Z",
+      "updatedAt": "2022-12-23T20:19:05.175Z",
+      "id": "2",
+      "name": "Slack"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-23T20:20:44.000Z",
+  "versionId": "96936665-2aae-4da5-8fb9-8ab82d6cff5d"
+}
