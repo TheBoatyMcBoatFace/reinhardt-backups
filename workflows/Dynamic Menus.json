@@ -1,0 +1,40 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2022-12-23T20:21:06.145Z",
+  "dataLoaded": false,
+  "id": 8,
+  "name": "Dynamic Menus",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "slack-menus",
+        "options": {}
+      },
+      "id": "2e2db959-ad0a-46f8-93dd-3fb4622ed28d",
+      "name": "Select Menus",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        860,
+        340
+      ],
+      "webhookId": "c2cb95a4-a9cb-4abc-a2f2-abd3e2012a2a"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2022-12-23T20:19:05.175Z",
+      "updatedAt": "2022-12-23T20:19:05.175Z",
+      "id": "2",
+      "name": "Slack"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-23T20:23:34.000Z",
+  "versionId": "b4280f9d-f2eb-41f5-b36d-50932df5e69e"
+}
