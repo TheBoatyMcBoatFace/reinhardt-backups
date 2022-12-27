@@ -1,0 +1,162 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Vars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Vars": {
+      "main": [
+        [
+          {
+            "node": "Get Repo Labels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Repo Labels": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-12-27T22:16:43.146Z",
+  "dataLoaded": false,
+  "id": 11,
+  "name": "Get Repo Info",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "5169ede6-be67-440f-8623-c704daa2b4c3",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        180,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "repo",
+              "value": "va.gov-cms"
+            },
+            {
+              "name": "owner",
+              "value": "department-of-veterans-affairs"
+            },
+            {
+              "name": "url",
+              "value": "https://api.github.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a789e032-cf3d-42ff-8ffe-14047947fbf0",
+      "name": "Set Vars",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        400,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json[\"url\"] }}/repos/{{ $json[\"owner\"] }}/{{ $json[\"repo\"] }}/labels",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "per_page",
+              "value": "100"
+            },
+            {
+              "name": "page",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "41875178-e5fb-464f-8f9a-56ecabbaf670",
+      "name": "Get Repo Labels",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        640,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "schema": "github",
+        "table": "labels",
+        "columns": "id,node_id,url,name,color,default,description",
+        "additionalFields": {
+          "mode": "independently"
+        }
+      },
+      "id": "e1d91ced-1f3d-4fe0-9a5b-9bb28b623c13",
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        860,
+        380
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "4",
+          "name": "PostyTheGres"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2022-12-22T18:31:19.661Z",
+      "updatedAt": "2022-12-22T18:31:19.661Z",
+      "id": "1",
+      "name": "In Progress"
+    },
+    {
+      "createdAt": "2022-12-27T22:16:58.437Z",
+      "updatedAt": "2022-12-27T22:16:58.437Z",
+      "id": "3",
+      "name": "Github"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-27T22:40:23.000Z",
+  "versionId": "0c4facd1-8159-4d69-b005-e9d2c1dfc290"
+}
