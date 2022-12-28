@@ -27,9 +27,38 @@
       "main": [
         [
           {
-            "node": "Postgres",
+            "node": "Google Sheets",
             "type": "main",
             "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare Datasets": {
+      "main": [
+        [
+          {
+            "node": "Insert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Label IDs": {
+      "main": [
+        [
+          {
+            "node": "New Labels",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
@@ -53,7 +82,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        180,
+        80,
         380
       ]
     },
@@ -83,7 +112,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        400,
+        300,
         380
       ]
     },
@@ -110,7 +139,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        640,
+        560,
         380
       ]
     },
@@ -119,16 +148,88 @@
         "schema": "github",
         "table": "labels",
         "columns": "id,node_id,url,name,color,default,description",
+        "returnFields": "id",
         "additionalFields": {
           "mode": "independently"
         }
       },
       "id": "e1d91ced-1f3d-4fe0-9a5b-9bb28b623c13",
-      "name": "Postgres",
+      "name": "Insert",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        860,
+        1380,
+        140
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "4",
+          "name": "PostyTheGres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "select id from github.labels;",
+        "additionalFields": {
+          "mode": "multiple"
+        }
+      },
+      "id": "e279ca8b-2fb4-44bb-94a0-7107b4c62b18",
+      "name": "Get Label IDs",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        600,
+        620
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "4",
+          "name": "PostyTheGres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "node_id",
+              "field2": "node_id"
+            }
+          ]
+        },
+        "resolve": "preferInput1",
+        "options": {}
+      },
+      "id": "449b0dc8-6535-434a-8d73-14ad2f0844ac",
+      "name": "Compare Datasets",
+      "type": "n8n-nodes-base.compareDatasets",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": "github",
+        "table": "labels",
+        "columns": "id,node_id,url,name,color,default,description",
+        "returnFields": "id",
+        "additionalFields": {
+          "mode": "independently"
+        }
+      },
+      "id": "a70e1900-0dc1-4342-8969-1106d098b038",
+      "name": "Update",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        1440,
         380
       ],
       "credentials": {
@@ -137,6 +238,52 @@
           "name": "PostyTheGres"
         }
       }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "id",
+              "field2": "id"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "id": "5c92dbec-f12d-4942-a205-9ab0a7a075a5",
+      "name": "New Labels",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [
+        1360,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        }
+      },
+      "id": "4fdb375d-2673-4e89-912c-e96c901d136e",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        780,
+        380
+      ]
     }
   ],
   "pinData": {},
@@ -157,6 +304,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2022-12-27T22:40:23.000Z",
-  "versionId": "0c4facd1-8159-4d69-b005-e9d2c1dfc290"
+  "updatedAt": "2022-12-28T00:31:28.000Z",
+  "versionId": "b2728830-feb2-4ab3-b986-caa0b76a67bd"
 }
