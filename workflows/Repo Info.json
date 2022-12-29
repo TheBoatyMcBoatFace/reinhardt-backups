@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "When clicking \"Execute Workflow\"": {
       "main": [
@@ -154,6 +154,39 @@
           }
         ]
       ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Vars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-12-29T00:06:45.795Z",
@@ -168,8 +201,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        560,
-        960
+        360,
+        920
       ]
     },
     {
@@ -204,19 +237,6 @@
     {
       "parameters": {
         "url": "={{ $json[\"url\"] }}/repos/{{ $json[\"owner\"] }}/{{ $json[\"repo\"] }}",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/vnd.github.raw+json"
-            },
-            {
-              "name": "Authorization",
-              "value": "Bearer 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"
-            }
-          ]
-        },
         "options": {}
       },
       "id": "ff531ea9-71cf-4e4a-9625-32464ed9eaa4",
@@ -448,30 +468,17 @@
     },
     {
       "parameters": {
-        "url": "={{ $node[\"Set Vars\"].json[\"url\"] }}/repos/{{ $node[\"Set Vars\"].json[\"owner\"] }}/{{ $node[\"Set Vars\"].json[\"repo\"] }}/issues",
+        "url": "=https://api.github.com/repos/department-of-veterans-affairs/va.gov-cms/issues",
         "sendQuery": true,
         "queryParameters": {
           "parameters": [
             {
               "name": "per_page",
-              "value": "100"
+              "value": "30"
             },
             {
               "name": "page",
               "value": "={{ $json[\"page\"] }}"
-            }
-          ]
-        },
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Bearer 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"
-            },
-            {
-              "name": "Accept",
-              "value": "application/vnd.github+json"
             }
           ]
         },
@@ -672,15 +679,17 @@
         },
         "dataMode": "autoMapInputData",
         "columnToMatchOn": "Issue",
-        "options": {}
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
       },
       "id": "55ed7da0-0222-45bf-b42e-beee1556a026",
       "name": "Google Sheets1",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3440,
-        960
+        3740,
+        1020
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -691,7 +700,7 @@
     },
     {
       "parameters": {
-        "batchSize": 2,
+        "batchSize": 1,
         "options": {}
       },
       "id": "8ce0c0f1-f1c2-4320-ac25-bb7a85ae4f77",
@@ -699,16 +708,58 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        2100,
+        2140,
         960
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1.25,
+        "unit": "minutes"
+      },
+      "id": "a7cf9a31-66f3-4712-9279-90b05240abd3",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4000,
+        1120
+      ],
+      "webhookId": "549dae91-76dc-4810-ad8c-bede00da5e08"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 8
+            }
+          ]
+        }
+      },
+      "id": "71074c76-2133-4af0-aa7d-56da4c373e85",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1180
       ]
     }
   ],
   "pinData": {},
-  "settings": {},
-  "staticData": null,
+  "settings": {
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrencyRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2022-12-29T05:05:04.000Z",
-  "versionId": "cdd0b401-9613-4743-bbfc-fc3df679b62a"
+  "triggerCount": 1,
+  "updatedAt": "2022-12-29T07:02:46.000Z",
+  "versionId": "856d90c4-f5a0-4db3-8eb6-3b53127f1f01"
 }
