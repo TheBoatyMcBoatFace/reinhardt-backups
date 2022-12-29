@@ -144,11 +144,6 @@
         ]
       ]
     },
-    "Google Sheets1": {
-      "main": [
-        []
-      ]
-    },
     "Split In Batches": {
       "main": [
         [
@@ -218,7 +213,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer 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"
+              "value": "Bearer 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"
             }
           ]
         },
@@ -472,15 +467,11 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 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"
+              "value": "Bearer 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"
             },
             {
               "name": "Accept",
               "value": "application/vnd.github+json"
-            },
-            {
-              "name": "state",
-              "value": "all"
             }
           ]
         },
@@ -648,7 +639,7 @@
           "string": [
             {
               "name": "page",
-              "value": "={{ $json[\"122\"] }}"
+              "value": "={{ $json[\"18\"] }}"
             }
           ]
         },
@@ -718,6 +709,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2022-12-29T04:57:31.000Z",
-  "versionId": "51aa5699-50a0-4145-b439-65b9e6feebd0"
+  "updatedAt": "2022-12-29T05:05:04.000Z",
+  "versionId": "cdd0b401-9613-4743-bbfc-fc3df679b62a"
 }
