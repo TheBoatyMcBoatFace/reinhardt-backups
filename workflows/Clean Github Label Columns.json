@@ -1,0 +1,154 @@
+{
+  "active": true,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Dirty Labels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Dirty Labels": {
+      "main": [
+        [
+          {
+            "node": "Get Label Names",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Label Names": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-12-30T04:19:52.769Z",
+  "dataLoaded": false,
+  "id": 14,
+  "name": "Clean Github Label Columns",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "id": "b51361e6-2e74-406b-b303-de8492aaabcf",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "labels",
+              "value": "={{ $json[\"labels\"].match(/(?<=\\\"name\\\\\\\"\\:\\\\\\\")(.{3,30})(?=\\\\\"\\,\\\\\\\"color)/g) }}"
+            },
+            {
+              "name": "repo_owner",
+              "value": "={{ $json[\"repo_owner\"] }}"
+            },
+            {
+              "name": "repo_name",
+              "value": "={{ $json[\"repo_name\"] }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "id",
+              "value": "={{ $json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9a483c76-cc68-4aae-9680-9adbefde68eb",
+      "name": "Get Label Names",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        740,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "select labels, id, repo_owner, repo_name\nfrom github.issues\nwhere labels ilike '%node_id%';",
+        "additionalFields": {}
+      },
+      "id": "e4a7581f-70da-4b48-b14f-70f63b0fdd65",
+      "name": "Get Dirty Labels",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        460,
+        360
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "4",
+          "name": "PostyTheGres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": "github",
+        "table": "issues",
+        "columns": "labels",
+        "additionalFields": {}
+      },
+      "id": "56cfc8a6-0d67-41d1-a13a-53f3cb96e196",
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        360
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "4",
+          "name": "PostyTheGres"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrencyRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2022-12-30T07:31:57.000Z",
+  "versionId": "fc6716ab-931e-494a-ab8c-bca162ec67c6"
+}
