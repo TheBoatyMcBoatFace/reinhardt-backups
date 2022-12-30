@@ -1,0 +1,36 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2022-12-30T09:22:43.290Z",
+  "dataLoaded": false,
+  "id": 17,
+  "name": "Copy issues from Posty to Sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "id": "a3253eac-27ef-45ff-a99b-8da4677fd90e",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        340,
+        380
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-30T09:22:43.290Z",
+  "versionId": "4afd9695-2c9d-4179-a434-1fc6b890b872"
+}
