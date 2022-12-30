@@ -1,0 +1,112 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Rename Keys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-12-30T19:34:09.441Z",
+  "dataLoaded": false,
+  "id": 19,
+  "name": "Github Pulls",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "88f7f68f-a650-459c-bb3e-6e1f8e0f9cee",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        440,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/department-of-veterans-affairs/va.gov-cms/pulls",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "per_page",
+              "value": "2"
+            },
+            {
+              "name": "page",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ded650cc-4208-4f96-8571-3a38c9e79d67",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        660,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "keys": {
+          "key": [
+            {
+              "currentKey": "user",
+              "newKey": "user_login"
+            },
+            {
+              "currentKey": "user.node_id",
+              "newKey": "user_node_id"
+            },
+            {
+              "currentKey": "head.repo.name",
+              "newKey": "repo_name"
+            },
+            {
+              "currentKey": "base.user.login",
+              "newKey": "repo_owner"
+            },
+            {}
+          ]
+        },
+        "additionalOptions": {}
+      },
+      "id": "86ef12c9-4260-4b29-b30d-56f821bc200b",
+      "name": "Rename Keys",
+      "type": "n8n-nodes-base.renameKeys",
+      "typeVersion": 1,
+      "position": [
+        880,
+        380
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-30T20:32:42.000Z",
+  "versionId": "e224ef5b-1ed4-4b74-af07-65544a16ae29"
+}
