@@ -714,8 +714,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3360,
-        1260
+        3340,
+        1600
       ],
       "webhookId": "afd2f6d1-47b3-485d-a5c6-9fc7fa991530"
     }
@@ -729,6 +729,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2022-12-30T09:41:45.000Z",
-  "versionId": "36101fc0-2317-4e7f-be57-68d84e16a4d5"
+  "updatedAt": "2022-12-30T09:57:34.000Z",
+  "versionId": "72db3113-1e88-4956-80f7-d76d8a773f12"
 }
