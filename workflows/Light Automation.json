@@ -1,0 +1,118 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Philips Hue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Philips Hue": {
+      "main": [
+        [
+          {
+            "node": "Philips Hue1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Philips Hue1": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2022-12-30T23:53:16.824Z",
+  "dataLoaded": false,
+  "id": 22,
+  "name": "Light Automation",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "d56039cf-4816-433b-8a62-d4f8be55c658",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        780,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll"
+      },
+      "id": "60429fd6-cd37-4f73-8470-cdb7456a2abb",
+      "name": "Philips Hue",
+      "type": "n8n-nodes-base.philipsHue",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        360
+      ],
+      "credentials": {
+        "philipsHueOAuth2Api": {
+          "id": "7",
+          "name": "Reinhardt"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "lightId": "1",
+        "additionalFields": {
+          "alert": "select",
+          "bri": 70
+        }
+      },
+      "id": "3f5899d2-a0fb-4cb2-bc65-5c56c48d6859",
+      "name": "Philips Hue1",
+      "type": "n8n-nodes-base.philipsHue",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        360
+      ],
+      "credentials": {
+        "philipsHueOAuth2Api": {
+          "id": "7",
+          "name": "Reinhardt"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "filters": {}
+      },
+      "id": "e2307544-9e0b-4de2-8948-d1e7212ddadd",
+      "name": "Zoom",
+      "type": "n8n-nodes-base.zoom",
+      "typeVersion": 1,
+      "position": [
+        720,
+        200
+      ],
+      "credentials": {
+        "zoomApi": {
+          "id": "8",
+          "name": "Reinhardt"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-31T00:40:12.000Z",
+  "versionId": "cdbb29da-9649-40f8-a24e-d9d616141b19"
+}
