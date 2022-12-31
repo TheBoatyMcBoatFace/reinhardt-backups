@@ -1,22 +1,11 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
-    "Schedule Trigger": {
+    "When clicking \"Execute Workflow\"": {
       "main": [
         [
           {
-            "node": "Stalest Issue",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Stalest Issue": {
-      "main": [
-        [
-          {
-            "node": "Google Sheets",
+            "node": "Zoom",
             "type": "main",
             "index": 0
           }
@@ -24,113 +13,58 @@
       ]
     }
   },
-  "createdAt": "2022-12-30T10:59:04.162Z",
+  "createdAt": "2022-12-31T00:19:06.479Z",
   "dataLoaded": false,
-  "id": 18,
+  "id": 23,
   "name": "My workflow 2",
   "nodes": [
     {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "hours",
-              "hoursInterval": 18
-            }
-          ]
-        }
-      },
-      "id": "634b87b6-dc5b-4200-85b0-f6be1d049e53",
-      "name": "Schedule Trigger",
-      "type": "n8n-nodes-base.scheduleTrigger",
+      "parameters": {},
+      "id": "47459df6-581b-4470-a7bf-30b71846632a",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        200,
-        380
+        180,
+        360
       ]
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT   team,   COUNT(*) AS \"Open Issues\",   (EXTRACT(DAY FROM CURRENT_DATE - MIN(gh_updated_at))::text || ' days') AS \"Stalest Issue\",   CONCAT((SELECT COUNT(*) FROM github.issues i2 WHERE gh_updated_at < CURRENT_DATE - INTERVAL '6 weeks' AND state = 'open' AND (     CASE       WHEN team = 'Platform CMS Team' THEN labels LIKE '%Platform CMS Team%'       WHEN team = 'Facilities' THEN labels LIKE '%Facilities%'       WHEN team = 'Infrastructure' THEN labels LIKE '%Infrastructure%'       WHEN team = 'Public Websites' THEN labels LIKE '%Public Websites%'       WHEN team = 'Sitewide CMS' THEN labels LIKE '%Sitewide CMS%'       WHEN team = 'User Support' THEN labels LIKE '%User Support%'       ELSE labels NOT LIKE '%Platform CMS Team%' AND labels NOT LIKE '%Facilities%' AND labels NOT LIKE '%Infrastructure%' AND labels NOT LIKE '%Public Websites%' AND labels NOT LIKE '%Sitewide CMS%' AND labels NOT LIKE '%User Support%'     END   )), ' days') AS \"Inactive for 3+ Sprints\",   round(((SELECT COUNT(*) FROM github.issues i2 WHERE gh_updated_at < CURRENT_DATE - INTERVAL '6 weeks' AND state = 'open' AND (     CASE       WHEN team = 'Platform CMS Team' THEN labels LIKE '%Platform CMS Team%'       WHEN team = 'Facilities' THEN labels LIKE '%Facilities%'       WHEN team = 'Infrastructure' THEN labels LIKE '%Infrastructure%'       WHEN team = 'Public Websites' THEN labels LIKE '%Public Websites%'       WHEN team = 'Sitewide CMS' THEN labels LIKE '%Sitewide CMS%'       WHEN team = 'User Support' THEN labels LIKE '%User Support%'       ELSE labels NOT LIKE '%Platform CMS Team%' AND labels NOT LIKE '%Facilities%' AND labels NOT LIKE '%Infrastructure%' AND labels NOT LIKE '%Public Websites%' AND labels NOT LIKE '%Sitewide CMS%' AND labels NOT LIKE '%User Support%'     END   )) / COUNT(*)::float * 100)) AS \"3+ Sprint Inactive Percentage\" FROM (   SELECT     gh_updated_at,     state,     CASE       WHEN labels LIKE '%Platform CMS Team%' THEN 'Platform CMS Team'       WHEN labels LIKE '%Facilities%' THEN 'Facilities'       WHEN labels LIKE '%Infrastructure%' THEN 'Infrastructure'       WHEN labels LIKE '%Public Websites%' THEN 'Public Websites'       WHEN labels LIKE '%Sitewide CMS%' THEN 'Sitewide CMS'       WHEN labels LIKE '%User Support%' THEN 'User Support'       ELSE 'Unassigned'     END AS team   FROM github.issues ) i WHERE state = 'open' GROUP BY team ORDER BY team asc;",
         "additionalFields": {}
       },
-      "id": "b61102e1-8a8b-4282-88db-6ac2ecf07f2e",
-      "name": "Stalest Issue",
-      "type": "n8n-nodes-base.postgres",
+      "id": "eabc4f0c-e610-48ac-aca4-ce318821110e",
+      "name": "Zoom",
+      "type": "n8n-nodes-base.zoom",
       "typeVersion": 1,
       "position": [
-        420,
-        380
+        520,
+        500
       ],
-      "credentials": {
-        "postgres": {
-          "id": "4",
-          "name": "PostyTheGres"
-        }
-      }
+      "disabled": true
     },
     {
       "parameters": {
-        "operation": "appendOrUpdate",
-        "documentId": {
-          "__rl": true,
-          "value": "https://docs.google.com/spreadsheets/d/1UsIWTg4WyaGRNmh064sTnKvgp413p5VNXC5zM28qFJc/edit?pli=1#gid=1742862749",
-          "mode": "url",
-          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com\\/\\w+\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 1742862749,
-          "mode": "list",
-          "cachedResultName": "TopLines",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UsIWTg4WyaGRNmh064sTnKvgp413p5VNXC5zM28qFJc/edit#gid=1742862749"
-        },
-        "columnToMatchOn": "Team",
-        "valueToMatchOn": "={{ $json[\"team\"] }}",
-        "fieldsUi": {
-          "values": [
-            {
-              "column": "Open Issues",
-              "fieldValue": "={{ $json[\"Open Issues\"] }}"
-            },
-            {
-              "column": "Stalest Issue",
-              "fieldValue": "={{ $json[\"Stalest Issue\"] }}"
-            },
-            {
-              "column": "Inactive for 3+ Sprints",
-              "fieldValue": "={{ $json[\"Inactive for 3+ Sprints\"] }}"
-            },
-            {
-              "column": "3+ Sprint Inactive Percentage",
-              "fieldValue": "={{ $json[\"3+ Sprint Inactive Percentage\"] }}"
-            }
-          ]
-        },
+        "httpMethod": "POST",
+        "path": "zoomy-events",
         "options": {}
       },
-      "id": "ab687eb1-0a2b-4929-9b82-c7320894ee43",
-      "name": "Google Sheets",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 3,
+      "id": "e04e886d-c2d2-495e-851d-6462def5c1fe",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
       "position": [
-        640,
-        380
+        780,
+        360
       ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "5",
-          "name": "Boaty N8N Reinhardt"
-        }
-      }
+      "webhookId": "a0ac3d96-02b1-4a4b-9069-e7ec124b34cc"
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2022-12-30T11:00:46.000Z",
-  "versionId": "83dc5380-aec3-4344-b0ed-09e85b1856e1"
+  "triggerCount": 1,
+  "updatedAt": "2022-12-31T00:19:16.000Z",
+  "versionId": "fa5bb5e1-7762-417c-ac6f-a274b932a0ce"
 }
