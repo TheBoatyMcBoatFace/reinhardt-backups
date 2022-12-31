@@ -1,0 +1,61 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-12-30T23:06:06.550Z",
+  "dataLoaded": false,
+  "id": 21,
+  "name": "OpenAI",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3446c8fe-3ffc-4cf2-86e4-d13842d5d992",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        440,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "a navy seabee holding a computer instead of a gun. the seabee should be drawn like a logo",
+        "options": {}
+      },
+      "id": "729ca53a-5059-4f4c-9d4c-eac1f0b86c2b",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        660,
+        380
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "3",
+          "name": "Boaty Personal: OpenAI"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-30T23:46:25.000Z",
+  "versionId": "d9eabc0d-6614-4eb2-bdc6-ead067ce3a35"
+}
