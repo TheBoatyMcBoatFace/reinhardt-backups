@@ -1,0 +1,98 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-12-31T00:44:11.271Z",
+  "dataLoaded": false,
+  "id": 24,
+  "name": "Calendars",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "85bbd0b2-2da8-4ca0-b515-f2091f02d7c7",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        760,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "calendarId": {
+          "__rl": true,
+          "value": "bentley.hensel@civicactions.com",
+          "mode": "list",
+          "cachedResultName": "bentley.hensel@civicactions.com"
+        },
+        "triggerOn": "eventStarted",
+        "options": {}
+      },
+      "id": "910c9ac3-3987-4e4c-ab42-bff9e4dd4315",
+      "name": "Google Calendar Trigger",
+      "type": "n8n-nodes-base.googleCalendarTrigger",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        140
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "10",
+          "name": "CivicActions"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "bentley.hensel@civicactions.com",
+          "mode": "list",
+          "cachedResultName": "bentley.hensel@civicactions.com"
+        },
+        "additionalFields": {}
+      },
+      "id": "39205fb2-6d82-41ea-8e35-c2f9c0b80339",
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        400
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "10",
+          "name": "CivicActions"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2022-12-31T00:52:59.000Z",
+  "versionId": "4899bc3e-07d3-4120-9a23-49523785749f"
+}
