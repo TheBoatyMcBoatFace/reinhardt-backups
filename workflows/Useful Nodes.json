@@ -12,11 +12,6 @@
         ]
       ]
     },
-    "Get Current Song": {
-      "main": [
-        []
-      ]
-    },
     "OpenWeatherMap": {
       "main": [
         [
@@ -495,7 +490,8 @@
     },
     {
       "parameters": {
-        "additionalFields": {}
+        "operation": "getAll",
+        "returnAll": true
       },
       "id": "35eece11-2804-48e7-b38d-9519be5d1f09",
       "name": "Philips Hue",
@@ -504,7 +500,13 @@
       "position": [
         480,
         120
-      ]
+      ],
+      "credentials": {
+        "philipsHueOAuth2Api": {
+          "id": "7",
+          "name": "Reinhardt"
+        }
+      }
     },
     {
       "parameters": {
@@ -675,8 +677,9 @@
         },
         "calendarId": {
           "__rl": true,
+          "value": "bentley.hensel@civicactions.com",
           "mode": "list",
-          "value": ""
+          "cachedResultName": "bentley.hensel@civicactions.com"
         },
         "options": {}
       },
@@ -687,7 +690,13 @@
       "position": [
         520,
         380
-      ]
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "10",
+          "name": "CivicActions"
+        }
+      }
     },
     {
       "parameters": {
@@ -1168,6 +1177,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2022-12-30T21:45:21.000Z",
-  "versionId": "7ed829ad-41f3-43f5-8462-8c45e55a93b1"
+  "updatedAt": "2022-12-31T00:43:16.000Z",
+  "versionId": "bfc8c1e6-33d7-4c2b-b5c5-189cdb61c902"
 }
