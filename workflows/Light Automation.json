@@ -30,8 +30,7 @@
     }
   },
   "createdAt": "2022-12-30T23:53:16.824Z",
-  "dataLoaded": false,
-  "id": 22,
+  "id": "22",
   "name": "Light Automation",
   "nodes": [
     {
