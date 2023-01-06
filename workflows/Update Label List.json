@@ -251,8 +251,7 @@
     }
   },
   "createdAt": "2022-12-30T07:33:10.244Z",
-  "dataLoaded": false,
-  "id": 15,
+  "id": "15",
   "name": "Update Label List",
   "nodes": [
     {
@@ -719,6 +718,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-01-04T21:59:09.000Z",
+  "updatedAt": "2023-01-05T23:54:02.000Z",
   "versionId": "bd0d471f-6456-46c3-999b-36b20f103585"
 }
