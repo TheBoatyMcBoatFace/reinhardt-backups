@@ -36,8 +36,7 @@
     }
   },
   "createdAt": "2022-12-30T04:19:52.769Z",
-  "dataLoaded": false,
-  "id": 14,
+  "id": "14",
   "name": "Clean Github Label Columns",
   "nodes": [
     {
@@ -149,6 +148,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-01-04T21:59:09.000Z",
+  "updatedAt": "2023-01-05T23:54:02.000Z",
   "versionId": "fc6716ab-931e-494a-ab8c-bca162ec67c6"
 }
