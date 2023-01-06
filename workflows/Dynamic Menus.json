@@ -2,8 +2,7 @@
   "active": false,
   "connections": {},
   "createdAt": "2022-12-23T20:21:06.145Z",
-  "dataLoaded": false,
-  "id": 8,
+  "id": "8",
   "name": "Dynamic Menus",
   "nodes": [
     {
