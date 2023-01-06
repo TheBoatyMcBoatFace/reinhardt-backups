@@ -99,8 +99,7 @@
     }
   },
   "createdAt": "2022-12-19T21:06:30.304Z",
-  "dataLoaded": false,
-  "id": 3,
+  "id": "3",
   "name": "Slack Responses",
   "nodes": [
     {
