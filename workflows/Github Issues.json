@@ -19,8 +19,7 @@
     }
   },
   "createdAt": "2022-12-23T20:33:29.255Z",
-  "dataLoaded": false,
-  "id": 10,
+  "id": "10",
   "name": "Github Issues",
   "nodes": [
     {
