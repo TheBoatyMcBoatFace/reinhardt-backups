@@ -14,8 +14,7 @@
     }
   },
   "createdAt": "2022-12-30T23:06:06.550Z",
-  "dataLoaded": false,
-  "id": 21,
+  "id": "21",
   "name": "OpenAI",
   "nodes": [
     {
