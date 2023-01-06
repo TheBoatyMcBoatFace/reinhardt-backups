@@ -2,8 +2,7 @@
   "active": false,
   "connections": {},
   "createdAt": "2022-12-22T16:56:37.470Z",
-  "dataLoaded": false,
-  "id": 5,
+  "id": "5",
   "name": "Sentry Alerts",
   "nodes": [
     {
