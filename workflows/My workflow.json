@@ -2,8 +2,7 @@
   "active": false,
   "connections": {},
   "createdAt": "2022-12-22T23:13:13.628Z",
-  "dataLoaded": false,
-  "id": 6,
+  "id": "6",
   "name": "My workflow",
   "nodes": [
     {
