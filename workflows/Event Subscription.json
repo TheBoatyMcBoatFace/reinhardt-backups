@@ -2,8 +2,7 @@
   "active": false,
   "connections": {},
   "createdAt": "2022-12-23T20:29:29.894Z",
-  "dataLoaded": false,
-  "id": 9,
+  "id": "9",
   "name": "Event Subscription",
   "nodes": [
     {
