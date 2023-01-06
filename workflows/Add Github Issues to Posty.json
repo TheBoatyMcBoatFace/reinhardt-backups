@@ -230,8 +230,7 @@
     }
   },
   "createdAt": "2022-12-29T16:14:37.860Z",
-  "dataLoaded": false,
-  "id": 13,
+  "id": "13",
   "name": "Add Github Issues to Posty",
   "nodes": [
     {
