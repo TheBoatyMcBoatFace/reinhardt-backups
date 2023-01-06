@@ -14,8 +14,7 @@
     }
   },
   "createdAt": "2022-12-31T00:19:06.479Z",
-  "dataLoaded": false,
-  "id": 23,
+  "id": "23",
   "name": "My workflow 2",
   "nodes": [
     {
@@ -65,6 +64,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-01-04T21:59:09.000Z",
+  "updatedAt": "2023-01-05T23:54:02.000Z",
   "versionId": "fa5bb5e1-7762-417c-ac6f-a274b932a0ce"
 }
