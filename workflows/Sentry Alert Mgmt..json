@@ -98,8 +98,7 @@
     }
   },
   "createdAt": "2022-12-19T20:44:34.731Z",
-  "dataLoaded": false,
-  "id": 2,
+  "id": "2",
   "name": "Sentry Alert Mgmt.",
   "nodes": [
     {
