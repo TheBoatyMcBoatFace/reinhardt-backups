@@ -58,8 +58,7 @@
     }
   },
   "createdAt": "2022-12-30T09:22:43.290Z",
-  "dataLoaded": false,
-  "id": 17,
+  "id": "17",
   "name": "Copy issues from Posty to Sheets",
   "nodes": [
     {
@@ -220,6 +219,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-01-04T21:59:09.000Z",
+  "updatedAt": "2023-01-05T23:54:02.000Z",
   "versionId": "1364414e-133c-471a-87ba-9332f9a5804b"
 }
