@@ -713,11 +713,13 @@
   "settings": {},
   "staticData": {
     "node:Schedule Trigger": {
-      "recurrencyRules": []
+      "recurrencyRules": [
+        10
+      ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-01-31T14:22:39.000Z",
+  "updatedAt": "2023-02-04T15:00:00.000Z",
   "versionId": "bd0d471f-6456-46c3-999b-36b20f103585"
 }
