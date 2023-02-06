@@ -755,12 +755,12 @@
   "staticData": {
     "node:Schedule Trigger": {
       "recurrencyRules": [
-        2
+        10
       ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-02-06T07:00:00.000Z",
+  "updatedAt": "2023-02-06T15:00:00.000Z",
   "versionId": "856d90c4-f5a0-4db3-8eb6-3b53127f1f01"
 }
