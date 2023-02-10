@@ -1,11 +1,6 @@
 {
   "active": false,
   "connections": {
-    "HTTP Request": {
-      "main": [
-        []
-      ]
-    },
     "Set Vars": {
       "main": [
         [
