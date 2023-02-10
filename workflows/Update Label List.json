@@ -212,7 +212,6 @@
     },
     "Need another page?2": {
       "main": [
-        [],
         [
           {
             "node": "Split In Batches",
@@ -242,11 +241,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "Google Sheets": {
-      "main": [
-        []
       ]
     }
   },
@@ -714,12 +708,12 @@
   "staticData": {
     "node:Schedule Trigger": {
       "recurrencyRules": [
-        2
+        10
       ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-02-10T07:00:00.000Z",
+  "updatedAt": "2023-02-10T15:00:00.000Z",
   "versionId": "bd0d471f-6456-46c3-999b-36b20f103585"
 }
