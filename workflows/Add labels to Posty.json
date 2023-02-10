@@ -306,12 +306,12 @@
   "staticData": {
     "node:Schedule Trigger": {
       "recurrencyRules": [
-        0
+        6
       ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-02-10T05:00:00.000Z",
+  "updatedAt": "2023-02-10T11:00:00.000Z",
   "versionId": "b6221b71-a7ae-412b-854b-b4603fea0bba"
 }
